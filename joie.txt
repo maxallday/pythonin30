@@ -1,0 +1,3 @@
+SHA256:JKyYKDIQksVqgFStGmgEI9msNQPPzGIztfb8OSSjhDc ssh-keygen@modiga.com joie\
+
+git commit git@github.com:maxallday/pythonin30.git
