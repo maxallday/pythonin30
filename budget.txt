@@ -1,0 +1,1 @@
+{"Food": 1500, "Transport": 2200, "Utilities": 600, "Entertainment": 250, "Clothes": 250}

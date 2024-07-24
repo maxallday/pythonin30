@@ -63,36 +63,48 @@ to_do_list = {
         "Apply for atleast 1 job a day": (True, None),
         "Read a chapter a day": (False, None)
     },
-    "Work": {}
+    "Work": {},
 }
 
-def add_task(category, task):
+def add_task(category, task,days):
     if category not in to_do_list:
         to_do_list[category] = {}
 
-    now = datetime.datetime.now()
-    to_do_list[category][task] = (False, now)
+    now  = datetime.now()
+    days = int(days)
+    
+    to_do_list[category][task][days] = (False, now)
     print(f"Task '{task}' added to '{category}' at {now}")
 
 user = input("Enter category: ")
+
 if user in to_do_list:
+    
     task = input("Enter task: ")
-    add_task(user, task)
+    days = input("Enter deadline in days: ")
+    add_task(user, days, task)
+if user =="q":
+    print("bye!")
+    exit()
 else:
     print(f"Category '{user}' does not exist but has been added.")
     task = input("Enter task: ")
-    add_task(user, task)
+    days = input("Enter deadline in days: ")
+    #future_date = now + timedelta(days=days)
+    add_task(user, days, task)
 
-def task_completed(category, task):
+def task_completed(category, task, days):
     for cat, tasks in to_do_list.items():
         for task_name, (is_complete, added_time) in tasks.items():
             if cat == category and task_name == task:
                 if is_complete:
                     status = "Done"
-                else:
-                    status = "Incomplete"
+            else:
+                if   datetime.now()>timedelta(days=int()) :
+                    status = "task is overdue"
                 print(f"{category} {task_name} - {status} (Added at {added_time})")
-def task_deadline(category, task, deadline):
+
+'''def task_deadline(category, task, deadline):
     for cat, tasks in to_do_list.items():
         for task_name, (is_complete, added_time) in tasks.items():
             if cat == category and task_name == task:
@@ -102,3 +114,5 @@ def task_deadline(category, task, deadline):
                 else:
                     status = "Incomplete"
                 print(f"{category} {task_name} {deadline}- {status} (Added at {added_time})")
+'''
+

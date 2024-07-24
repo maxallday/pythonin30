@@ -4,7 +4,7 @@ Homework: Your Calculator, Your Rules
 Error Handling: What if someone tries to divide by zero or enters an invalid operator? Add checks for these.
 More Operators: Extend your calculator to handle other operators like % for modulo.
 '''
-from pythonday18 import math_functions
+from pythonday19 import math_functions
 def calculate(expressions):
     num1, operator, num2 = expressions.split() # split the expressions into 3 parts
     num1,num2 = float(num1),float(num2) # convert the strings into floats
@@ -14,16 +14,16 @@ def calculate(expressions):
         return math_functions.subtract(num1,num2)
     elif operator == '*':
         return math_functions.multiply(num1,num2)
-    elif operator == '/':
-        return math_functions.divide(num1,num2)
     elif operator == '%':
         return math_functions.modulo(num1,num2)
     elif operator == '**':
         return math_functions.power(num1,num2)
     elif operator == '//':
-        return "syntax error"
-    elif num1 == '0':
-        return "syntax error"
+        return "invalid operator"
+    elif operator == '/' and num2 == 0:
+        return "cannot divide by zero"
+    elif operator == '/':
+        return math_functions.divide(num1,num2)
     else:
         return "Invalid operator"
 while True:

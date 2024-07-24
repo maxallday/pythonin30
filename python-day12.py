@@ -8,7 +8,7 @@ text = "I like apples"
 new_text = text.replace("apples", "bananas")
 print(new_text)  # Output: "I like bananas"
 '''
-text = "Hello Lilly"
+text = "Hello Siya"
 print(text.__add__(" and Cindly!")) #add
 #Homework: String Exercises
 '''Initials: Take a full name from the user and print the initials in uppercase. 

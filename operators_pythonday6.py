@@ -3,7 +3,7 @@
 #print(5>19 or 10>1)
 age = input("How old are you?")
 int(age)
-if age > 18:
+if age > str(18):
     print("You are old enough to vote!")
     print("Please put your vote in.")
 else:

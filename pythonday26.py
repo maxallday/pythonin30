@@ -77,7 +77,7 @@ def complete_task(category,task):
 '''
 # Function to mark a task as complete
 def display_task(category, task):
-    if category in to_do_list and task in todo_list[category]:
+    if category in to_do_list and task in to_do_list[category]:
         to_do_list[category][task] = True
     else:
         print(f"Task '{task}' does not exist in category '{category}'.")
@@ -89,7 +89,15 @@ def display_completed():
         for task, is_complete in tasks.items():
             status = "Done" if is_complete else "Incomplete"
             print(f"{task} - {status}")
-
+#add task
+user = input("Enter category: ")
+if user in to_do_list:
+    task = input("Enter task: ")
+    add_task(user,task)
+else:
+    print(f"Category '{user}' does not exist.")
+task = input("Enter task: ")
+add_task(user,task) 
 # Call the display_tasks function
 #display_tasks()
 #call the function
